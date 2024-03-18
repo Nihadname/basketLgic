@@ -19,8 +19,9 @@ allAddingBasketButtons.forEach(item => {
             id:productId,
             name:this.parentElement.firstElementChild.innerText,
             desc:this.previousElementSibling.previousElementSibling.innerText,
-            price:this.previousElementSibling.innerText,
-            count:1
+            price:this.previousElementSibling.innerText.split("$")[0],
+            count:1,
+            image:this.parentElement.previousElementSibling.getAttribute("src")
         }
         productsArr.push(products);
         }

@@ -132,3 +132,17 @@ function calculationBasketCount(){
 };
 calculationBasketCount();
 CalculateBaketTotalPrice()
+function clearBasket(){
+    let table=document.querySelector(".table");
+
+    localStorage.setItem("basket", JSON.stringify([]));
+    table.lastElementChild.innerHTML=" "
+}
+let deleteAll=document.querySelector("#deleteAll")
+deleteAll.addEventListener("click", function(){
+    if(clearBasket()==false){
+    if (confirm('Are you sure you want to clear the basket?')) {
+        clearBasket();
+    }
+}
+})

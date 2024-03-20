@@ -140,9 +140,8 @@ function clearBasket(){
 }
 let deleteAll=document.querySelector("#deleteAll")
 deleteAll.addEventListener("click", function(){
-    if(clearBasket()==false){
+  
     if (confirm('Are you sure you want to clear the basket?')) {
         clearBasket();
     }
-}
 })

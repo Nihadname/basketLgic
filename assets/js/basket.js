@@ -24,8 +24,8 @@ getBasket().forEach(products => {
     let tdImage=document.createElement("td");
      let img=document.createElement("img");
      img.setAttribute("src",products.image);
-     img.style.width="100px";
-     img.style.height="100px";
+     img.style.width="120px";
+     img.style.height="120px";
      tdImage.appendChild(img);
      let tdName=document.createElement("td");
      tdName.innerText=products.name;
@@ -54,14 +54,40 @@ getBasket().forEach(products => {
      countWrapper.appendChild(decreaseSpan);
      countWrapper.appendChild(countDisplay);
      countWrapper.appendChild(increaseSpan);
-     
 
+     
+function updateProductsInBasket(productId,newValue){
+    let basket=getBasket();
+  let productIndex=  basket.findIndex(product => product.id === productId)
+  if(productIndex!==-1){
+basket[productIndex].count=newValue;
+  }
+  updateBasket(basket);
+}
 // Add click event listeners to each span
 increaseSpan.addEventListener("click",function(){
-   
+ products.count+=1;
+ countDisplay.innerText=products.count;
+ tdPrice.innerText=(products.count*products.price)+"$";
+
+ updateProductsInBasket(products.id,products.count);
+ CalculateBaketTotalPrice();
+ calculationBasketCount();
 })
 decreaseSpan.addEventListener("click", function(){
-    
+    if(products.count>0){
+        products.count-=1;
+        countDisplay.innerText=products.count;
+        tdPrice.innerText=(products.count*products.price)+"$";
+
+        updateProductsInBasket(products.id,products.count);
+        CalculateBaketTotalPrice();
+        calculationBasketCount();
+        if(products.count==0){
+            tr.remove();
+            removeItem(products.id); 
+        }
+    }
 })
 //update it
 function updateBasket(basket) {
@@ -81,24 +107,28 @@ function removeItem(productId) {
 tdCount.appendChild(countWrapper);
      tr.append(tdImage,tdName,tdPrice,tdCount,TdRemove)
      let table=document.querySelector(".table");
+     table.classList.remove("d-none");
      CalculateBaketTotalPrice()
      table.lastElementChild.append(tr);
      TdRemove.onclick=function(){
         let basket = getBasket();
 
        tr.remove();
-       calculationBasketCount()
+       calculationBasketCount();
    removeItem(products.id); 
    //updateBasket(basket);
      }
+    
+     
 });
 function calculationBasketCount(){
     let basket=localStorage.getItem("basket");
-    let length;
+    let length=0;
     if(basket){
         length=JSON.parse(basket).length;
         Basketcount.innerText=length;
     }
+    return length
 };
 calculationBasketCount();
 CalculateBaketTotalPrice()

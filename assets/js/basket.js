@@ -14,7 +14,7 @@ function CalculateBaketTotalPrice(){
     basket.forEach(products=>{
         totalPriceBasket+=products.count*products.price;
     })
-    totalPrice.innerText=totalPriceBasket;
+    totalPrice.innerText="Total price is "+totalPriceBasket;
 
 }
 let Basketcount=document.querySelector("#count");

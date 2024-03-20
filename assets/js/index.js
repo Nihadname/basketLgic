@@ -42,25 +42,59 @@ function calculationBasketCount() {
 };
 calculationBasketCount();
 
-let inputForSearch = document.querySelector(".inputForSearch");
-let Search=document.querySelector("#Search");
-Search.addEventListener("click", function () {
-    let searchedValue = this.value.toLowerCase();
-    if(searchedValue.trim()==''){
-        displayResults([])
-    }
-    const filteredProducts = JSON.parse(localStorage.getItem("basket")).filter(products => products.name.toLowerCase().includes(searchedValue) || 
-    products.desc.toLowerCase().includes(searchedValue));
-    displayResults(filteredProducts);
 
-})
+
+//input dan searche etme mentiqi
+let inputForSearch = document.querySelector(".inputForSearch");
+let Search = document.querySelector("#Search");
+let productsArr2 = [];
+
+    document.querySelectorAll(".card").forEach(function(card) {
+        let product = {
+            id: card.querySelector(".card-body").getAttribute("data-id"),
+            name: card.querySelector(".card-title").innerText,
+            desc: card.querySelector(".card-text").innerText,
+            price: card.querySelector(".price").innerText.split("$")[0],
+            count: 1,
+            image: card.querySelector("img").src
+        };
+        productsArr2.push(product);
+    });
+
+    localStorage.setItem("Allproducts", JSON.stringify(productsArr2));
+
+Search.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    let searchedValue = inputForSearch.value.toLowerCase(); 
+
+    if (searchedValue.trim() == '') {
+        displayResults([]);
+        return; 
+    }
+    const Allproducts = JSON.parse(localStorage.getItem("Allproducts"));
+    console.log(Allproducts);
+
+    const filteredProducts = Allproducts.filter(products => products.name.toLowerCase().includes(searchedValue) || products.desc.toLowerCase().includes(searchedValue));
+    console.log(filteredProducts);
+    displayResults(filteredProducts);
+});
+
 
 function displayResults(results){
     const container = document.querySelector(".resultsOfTheSearchBar");
     container.innerHTML='';
     results.forEach(items=>{
         const productElement = document.createElement("div");
-        productElement.innerText = items.name + " - $" + items.price;
+        productElement.innerHTML +=`<div class="card" style="width: 18rem;">
+        <img src="${items.image}" class="card-img-top" alt="...">
+        <div class="card-body" data-id="${items.id}">
+          <h5 class="card-title">${items.name}</h5>
+          <p class="card-text">${items.desc}</p>
+          <p class="price">${items.price}$</p>
+          <a  class="btn btn-primary">add  basket</a>
+        </div>
+      </div>`;
         container.appendChild(productElement);
     })
 

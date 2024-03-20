@@ -6,10 +6,19 @@ function getBasket(){
     }
     return products;
 }
+let totalPrice=document.querySelector("#totalPrice");
+
+function CalculateBaketTotalPrice(){
+    let totalPriceBasket=0;
+    let basket=getBasket();
+    basket.forEach(products=>{
+        totalPriceBasket+=products.count*products.price;
+    })
+    totalPrice.innerText=totalPriceBasket;
+
+}
 let Basketcount=document.querySelector("#count");
 
-let totalPrice=document.querySelector("#totalPrice");
-let totalPriceBasket=0;
 getBasket().forEach(products => {
     let tr=document.createElement("tr");
     let tdImage=document.createElement("td");
@@ -23,33 +32,66 @@ getBasket().forEach(products => {
      let tdPrice=document.createElement("td");
      tdPrice.innerText=(products.count*products.price)+"$";
      let tdCount=document.createElement("td");
-     tdCount.innerText=products.count;
      let TdRemove=document.createElement("td");
      TdRemove.innerHTML=`<i class="fa-solid fa-trash"></i>`;
+     let countWrapper = document.createElement("div");
+     countWrapper.style.display = "flex";
+     countWrapper.style.alignItems = "center";
+     
+     // Create the decrease and increase spans
+     let decreaseSpan = document.createElement("span");
+     decreaseSpan.style.margin="12px"
+     decreaseSpan.innerHTML = '<i class="fa-solid fa-minus"></i>';
      let increaseSpan = document.createElement("span");
-let decreaseSpan = document.createElement("span");
-increaseSpan.innerHTML = "+";
-decreaseSpan.innerHTML = "-";
+     increaseSpan.style.margin="12px"
+     increaseSpan.innerHTML = '<i class="fa-solid fa-plus"></i>';
+     
+     // Span to display the count, you may adjust this part based on your actual code logic
+     let countDisplay = document.createElement("span");
+     countDisplay.innerText = products.count;
+     
+     // Append the decreaseSpan, countDisplay, and increaseSpan to the countWrapper
+     countWrapper.appendChild(decreaseSpan);
+     countWrapper.appendChild(countDisplay);
+     countWrapper.appendChild(increaseSpan);
+     
 
 // Add click event listeners to each span
 increaseSpan.addEventListener("click",function(){
-    products.count++;
-    tdCount.innerText=products.count;
-    tdPrice.innerText=(products.price *products.count)+"$";
+   
 })
+decreaseSpan.addEventListener("click", function(){
+    
+})
+//update it
+function updateBasket(basket) {
+    localStorage.setItem("basket", JSON.stringify(basket));
+    CalculateBaketTotalPrice();
+    calculationBasketCount();
+}
+
+function removeItem(productId) {
+    let basket = getBasket();
+    basket = basket.filter(product => product.id !== productId);
+    updateBasket(basket);
+}
+
 
 // Append the spans to the 'tdCount' cell
-tdCount.appendChild(decreaseSpan);
-tdCount.appendChild(increaseSpan);
+tdCount.appendChild(countWrapper);
      tr.append(tdImage,tdName,tdPrice,tdCount,TdRemove)
      let table=document.querySelector(".table");
+     CalculateBaketTotalPrice()
      table.lastElementChild.append(tr);
-     totalPriceBasket+=products.count*products.price;
      TdRemove.onclick=function(){
-        tr.remove();
+        let basket = getBasket();
+
+       tr.remove();
+       calculationBasketCount()
+   removeItem(products.id); 
+   //updateBasket(basket);
      }
 });
-totalPrice.innerText=totalPriceBasket
 function calculationBasketCount(){
     let basket=localStorage.getItem("basket");
     let length;
@@ -59,3 +101,4 @@ function calculationBasketCount(){
     }
 };
 calculationBasketCount();
+CalculateBaketTotalPrice()

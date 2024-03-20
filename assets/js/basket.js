@@ -143,5 +143,8 @@ deleteAll.addEventListener("click", function(){
   
     if (confirm('Are you sure you want to clear the basket?')) {
         clearBasket();
+        CalculateBaketTotalPrice();
+        calculationBasketCount();
+
     }
 })

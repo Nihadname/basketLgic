@@ -108,7 +108,8 @@ tdCount.appendChild(countWrapper);
      tr.append(tdImage,tdName,tdPrice,tdCount,TdRemove)
      let table=document.querySelector(".table");
      table.classList.remove("d-none");
-     CalculateBaketTotalPrice()
+     CalculateBaketTotalPrice();
+     
      table.lastElementChild.append(tr);
      TdRemove.onclick=function(){
         let basket = getBasket();

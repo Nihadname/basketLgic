@@ -85,6 +85,7 @@ decreaseSpan.addEventListener("click", function(){
         calculationBasketCount();
         if(products.count==0){
             tr.remove();
+            clearBasket();
             removeItem(products.id); 
         }
     }
@@ -100,6 +101,8 @@ function removeItem(productId) {
     let basket = getBasket();
     basket = basket.filter(product => product.id !== productId);
     updateBasket(basket);
+    updateAlertVisibility(); // Check and update alert visibility
+
 }
 
 
@@ -108,7 +111,8 @@ tdCount.appendChild(countWrapper);
      tr.append(tdImage,tdName,tdPrice,tdCount,TdRemove)
      let table=document.querySelector(".table");
      table.classList.remove("d-none");
-     CalculateBaketTotalPrice();
+    
+    CalculateBaketTotalPrice();
      
      table.lastElementChild.append(tr);
      TdRemove.onclick=function(){
@@ -119,8 +123,6 @@ tdCount.appendChild(countWrapper);
    removeItem(products.id); 
    //updateBasket(basket);
      }
-    
-     
 });
 function calculationBasketCount(){
     let basket=localStorage.getItem("basket");
@@ -138,6 +140,8 @@ function clearBasket(){
 
     localStorage.setItem("basket", JSON.stringify([]));
     table.lastElementChild.innerHTML=" "
+    updateAlertVisibility(); // Check and update alert visibility
+
 }
 let deleteAll=document.querySelector("#deleteAll")
 deleteAll.addEventListener("click", function(){
@@ -149,3 +153,23 @@ deleteAll.addEventListener("click", function(){
 
     }
 })
+function updateAlertVisibility() {
+    let alertInZeroCondition = document.querySelector(".AlertInZeroCondition");
+    let table=document.querySelector(".table");
+    let totalPriceItself=document.querySelector(".totalPriceItself");
+
+    let basket = getBasket();
+    if (basket.length === 0) {
+        // Show the alert if the basket is empty
+        table.classList.add("d-none");
+        alertInZeroCondition.classList.remove("d-none");
+
+        totalPriceItself.classList.add("d-none");
+    } else {
+        table.classList.remove("d-none");
+        totalPriceItself.classList.remove("d-none");
+        // Hide the alert if the basket is not empty
+        alertInZeroCondition.classList.add("d-none");
+    }
+}
+updateAlertVisibility();

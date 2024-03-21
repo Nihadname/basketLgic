@@ -74,22 +74,19 @@ increaseSpan.addEventListener("click",function(){
  CalculateBaketTotalPrice();
  calculationBasketCount();
 })
-decreaseSpan.addEventListener("click", function(){
-    if(products.count>0){
-        products.count-=1;
-        countDisplay.innerText=products.count;
-        tdPrice.innerText=(products.count*products.price)+"$";
-
-        updateProductsInBasket(products.id,products.count);
-        CalculateBaketTotalPrice();
-        calculationBasketCount();
-        if(products.count==0){
-            tr.remove();
-            clearBasket();
-            removeItem(products.id); 
-        }
+decreaseSpan.addEventListener("click", function() {
+    if (products.count > 1) {
+        products.count -= 1;
+        countDisplay.innerText = products.count;
+        tdPrice.innerText = (products.count * products.price) + "$";
+        updateProductsInBasket(products.id, products.count);
+    } else if (products.count === 1) {
+        tr.remove();
+        removeItem(products.id); 
     }
-})
+    CalculateBaketTotalPrice();
+    calculationBasketCount();
+});
 //update it
 function updateBasket(basket) {
     localStorage.setItem("basket", JSON.stringify(basket));

@@ -1,5 +1,28 @@
-let allAddingBasketButtons = document.querySelectorAll(".btn-primary");
+let allAddingBasketButtons = document.querySelectorAll(".save-btn");
 let Basketcount = document.querySelector("#count");
+// Query all buttons using the class .save-btn and assign them to a variable
+// Iterate over each button and attach a click event listener
+allAddingBasketButtons.forEach(button => {
+    button.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        this.innerHTML = `<div class="loader"></div>`;
+
+        setTimeout(() => {
+
+            this.innerHTML = `
+            <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+              <img src="https://kontakt.az/static/version1710847247/frontend/Swissup/breeze-customized/az_Latn_AZ/images/icon/addto-in-cart.svg" alt="" style="vertical-align: middle;">
+              <span>added to basket</span>
+            </div>`;            this.style.color="black";
+            let i=document.createElement("i");
+            this.style.background="#f3f3f3";
+        
+        }, 2000); 
+    });
+});
+
+
 
 allAddingBasketButtons.forEach(item => {
     item.addEventListener("click", function (ev) {
@@ -15,7 +38,6 @@ allAddingBasketButtons.forEach(item => {
         if (existProduct) {
             existProduct.count++;
         } else {
-            swal("Good job!", "You succesfully added to the basket", "success");
 
             let products = {
                 id: productId,

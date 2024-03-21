@@ -15,6 +15,8 @@ allAddingBasketButtons.forEach(item => {
         if (existProduct) {
             existProduct.count++;
         } else {
+            swal("Good job!", "You succesfully added to the basket", "success");
+
             let products = {
                 id: productId,
                 name: this.parentElement.firstElementChild.innerText,

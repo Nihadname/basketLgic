@@ -1,0 +1,15 @@
+.cartEmpty__but{
+    border: 1px solid #323232;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    background: #fff;
+    max-width: 264px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+     height: 48px;
+}

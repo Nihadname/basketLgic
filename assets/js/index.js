@@ -66,19 +66,36 @@ function calculationBasketCount() {
 };
 calculationBasketCount();
 
+function ToShowDiscountsInTheProducts(){
+    let price=document.querySelectorAll(".price");
+    
+    price.forEach(item=>{
+        let originalPriceText = item.textContent;
+        item.style.textDecoration="line-through";
+        let valueOfNewProduct = parseFloat(originalPriceText.split("$")[0]);
+        let valueOfNewProductAfterDiscount = valueOfNewProduct * 0.75; 
+        let newDiscountedPriceValue = document.createElement("p");
+        newDiscountedPriceValue.classList.add("newPrice")
+        newDiscountedPriceValue
+        newDiscountedPriceValue.textContent =valueOfNewProductAfterDiscount.toFixed(2) + "$";
+        item.after(newDiscountedPriceValue);
+    })
 
+}
+ToShowDiscountsInTheProducts();
 
 //input dan searche etme mentiqi
 let inputForSearch = document.querySelector(".inputForSearch");
 let Search = document.querySelector("#Search");
 let productsArr2 = [];
 
+
     document.querySelectorAll(".card").forEach(function(card) {
         let product = {
             id: card.querySelector(".card-body").getAttribute("data-id"),
             name: card.querySelector(".card-title").innerText,
             desc: card.querySelector(".card-text").innerText,
-            price: card.querySelector(".price").innerText.split("$")[0],
+            price: card.querySelector(".newPrice").innerText.split("$")[0],
             count: 1,
             image: card.querySelector("img").src
         };
@@ -123,20 +140,5 @@ function displayResults(results){
     })
 
 }
-    function ToShowDiscountsInTheProducts(){
-        let newDiscountedPriceValue=document.createElement("p");
-        let price=document.querySelectorAll(".price");
-        
-        price.forEach(item=>{
-            let originalPriceText = item.textContent;
-            item.style.textDecoration="line-through";
-            let valueOfNewProduct = parseFloat(originalPriceText.split("$")[0]);
-            let valueOfNewProductAfterDiscount = valueOfNewProduct * 0.75; 
-            let newDiscountedPriceValue = document.createElement("p");
-            newDiscountedPriceValue.textContent =valueOfNewProductAfterDiscount.toFixed(2) + "$";
-            item.after(newDiscountedPriceValue);
-        })
-    
-    }
-    ToShowDiscountsInTheProducts();
+
   

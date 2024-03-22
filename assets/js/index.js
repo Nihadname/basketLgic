@@ -123,3 +123,20 @@ function displayResults(results){
     })
 
 }
+    function ToShowDiscountsInTheProducts(){
+        let newDiscountedPriceValue=document.createElement("p");
+        let price=document.querySelectorAll(".price");
+        
+        price.forEach(item=>{
+            let originalPriceText = item.textContent;
+            item.style.textDecoration="line-through";
+            let valueOfNewProduct = parseFloat(originalPriceText.split("$")[0]);
+            let valueOfNewProductAfterDiscount = valueOfNewProduct * 0.75; 
+            let newDiscountedPriceValue = document.createElement("p");
+            newDiscountedPriceValue.textContent =valueOfNewProductAfterDiscount.toFixed(2) + "$";
+            item.after(newDiscountedPriceValue);
+        })
+    
+    }
+    ToShowDiscountsInTheProducts();
+  

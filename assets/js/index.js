@@ -42,7 +42,7 @@ allAddingBasketButtons.forEach(item => {
             let products = {
                 id: productId,
                 name: this.parentElement.firstElementChild.innerText,
-                desc: this.previousElementSibling.previousElementSibling.innerText,
+                desc: this.previousElementSibling.previousElementSibling.previousElementSibling.innerText,
                 price: this.previousElementSibling.innerText.split("$")[0],
                 count: 1,
                 image: this.parentElement.previousElementSibling.getAttribute("src")

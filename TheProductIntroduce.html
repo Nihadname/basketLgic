@@ -1,54 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.21094 2.17502C7.21094 0.969587 8.18926 0 9.38597 0C10.5914 0 11.561 0.978322 11.561 2.17502V13.6266C11.561 14.832 10.5914 15.8016 9.38597 15.8016C8.18053 15.8016 7.21094 14.8233 7.21094 13.6266V2.17502Z" fill="#FF003C"></path><path d="M18.0794 12.6833C16.7866 11.9321 15.9219 10.5257 15.9219 8.92724C15.9219 7.28506 16.8303 5.86125 18.1668 5.11878L22.9973 2.33231C23.3117 2.15761 23.6699 2.06152 24.0542 2.06152C25.2597 2.06152 26.2293 3.03984 26.2293 4.23654C26.2293 5.04016 25.7925 5.74769 25.1374 6.1233L21.3027 8.33326C21.093 8.44681 20.9533 8.67392 20.9533 8.92724C20.9533 9.18055 21.0843 9.39893 21.2852 9.51248L25.1199 11.7312C25.775 12.1068 26.2205 12.8143 26.2205 13.6267C26.2205 14.8321 25.2422 15.8017 24.0455 15.8017C23.6437 15.8017 23.2768 15.6969 22.9536 15.5134L18.0794 12.6833Z" fill="#FF003C"></path><path d="M31.6029 20.1078C28.1963 25.3925 22.4486 28.8691 15.9235 28.8691C9.43334 28.8691 3.70313 25.4275 0.296455 20.1865C-0.253855 19.3392 -0.0180087 18.1949 0.838028 17.6446C1.65912 17.1117 2.75101 17.3214 3.32752 18.1075C6.16642 21.9946 10.7523 24.519 15.9322 24.519C21.1121 24.519 25.7068 21.9859 28.5457 18.0988C29.096 17.3563 30.1354 17.1205 30.9565 17.6009C31.8126 18.1075 32.1096 19.2343 31.6029 20.1078Z" fill="#FF003C"></path></svg></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="basket.html">
-                    <i class="fa-solid fa-basket-shopping nav-link"></i>
 
-                </a>
-     <span id="count">0</span>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2 inputForSearch" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" id="Search" type="submit">Search</button>
-            </form>
-          </div>
+<body>
+    <header>
+        <div class="container-addtion">
+            <nav class="navbar navbar-expand-lg bg-white border-bottom ">
+                <div class="container-fluid">
+                    <a href="" class="navbar-brand">
+                        <img src="https://kontakt.az/static/version1711122796/frontend/Swissup/breeze-customized/az_Latn_AZ/images/logo.svg"
+                            alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse fw-bold  " id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0 ps-5 ">
+                            <li class="nav-item">
+                                <a class="nav-link active text-danger " aria-current="page" href="#">Kampaniya</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fw-medium" href="#">Mağazalar</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="" class="nav-link text-dark fw-medium ">Korporativ satışlar</a>
+
+                        </ul>
+                        <div class="elementsLeftPart   ">
+                            <a class=" text-decoration-none" href="tel:6060"
+                                style="color: #323232"><span>*</span>6060</a>
+                        </div>
+                        <button class="btn btn-outline-success extraButton me-3" id="Search" type="submit">Aylıq
+                            Ödəniş</button>
+                        <button type="button" class="btn btn-light me-3 ">
+                            Daxil ol </button>
+                        <li class="nav-item dropdown list-unstyled">
+                            <a class="nav-link dropdown-toggle  fw-normal " href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                AZ
+                            </a>
+                            <ul class="dropdown-menu list-unstyled ">
+                                <li><a class="dropdown-item" href="#">
+                                        RU </a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+            </nav>
         </div>
-      </nav>
-    
+    </header>
+    <main>
+        <section id="ProductAll">
+            <div class="container">
+                <div class="productPart">
+                    <div class="header-gap"></div>
+                    <div class="TopPart">
+                        <div class="title">
+                            <h1 class="page-title">
+                                iPhone 15 Pro 512 GB Blue </h1>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+
+                        </div>
+                        <div class="lastOne">
+                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" class="me-2 "
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M1 0.75C1 0.335786 1.33579 0 1.75 0H18.25C18.6642 0 19 0.335786 19 0.75C19 1.16421 18.6642 1.5 18.25 1.5H17.208L19.9446 8.21703C19.9812 8.30688 20 8.40298 20 8.5C20 10.433 18.433 12 16.5 12C14.567 12 13 10.433 13 8.5C13 8.40298 13.0188 8.30688 13.0554 8.21703L15.792 1.5H10.75L10.75 13.5H14.75C15.9926 13.5 17 14.5074 17 15.75C17 16.9926 15.9926 18 14.75 18H5.25293C4.01029 18 3.00293 16.9926 3.00293 15.75C3.00293 14.5074 4.01029 13.5 5.25293 13.5H9.25L9.24999 1.5H4.208L6.94457 8.21703C6.98118 8.30688 7 8.40298 7 8.5C7 10.433 5.433 12 3.5 12C1.567 12 0 10.433 0 8.5C0 8.40298 0.0188248 8.30688 0.0554307 8.21703L2.792 1.5H1.75C1.33579 1.5 1 1.16421 1 0.75ZM4.50293 15.75C4.50293 16.1642 4.83872 16.5 5.25293 16.5H14.75C15.1642 16.5 15.5 16.1642 15.5 15.75C15.5 15.3358 15.1642 15 14.75 15H5.25293C4.83872 15 4.50293 15.3358 4.50293 15.75ZM5.35462 9.25H1.64538C1.94207 9.98296 2.66066 10.5 3.5 10.5C4.33934 10.5 5.05793 9.98296 5.35462 9.25ZM5.13459 7.75L3.5 3.73782L1.86541 7.75H5.13459ZM16.5 10.5C17.3393 10.5 18.0579 9.98296 18.3546 9.25H14.6454C14.9421 9.98296 15.6607 10.5 16.5 10.5ZM14.8654 7.75H18.1346L16.5 3.73782L14.8654 7.75Z"
+                                    fill="#323232"></path>
+                            </svg>
+                            <svg width="21" height="18" viewBox="0 0 21 18" fill="none" class="me-2 "
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.8199 1.57912L9.99915 2.40163L9.1759 1.57838C7.07683 -0.520693 3.67357 -0.520693 1.5745 1.57838C-0.524569 3.67744 -0.524569 7.08071 1.5745 9.17977L9.46987 17.0751C9.76276 17.368 10.2376 17.368 10.5305 17.0751L18.432 9.17831C20.5264 7.07228 20.53 3.67857 18.4305 1.57912C16.3276 -0.523771 12.9228 -0.523767 10.8199 1.57912ZM17.3684 8.12059L10.0002 15.4842L2.63516 8.11911C1.12188 6.60583 1.12188 4.15232 2.63516 2.63904C4.14844 1.12575 6.60196 1.12575 8.11524 2.63904L9.47268 3.99648C9.77055 4.29435 10.2552 4.28854 10.5459 3.98363L11.8805 2.63978C13.3976 1.12268 15.8528 1.12268 17.3699 2.63978C18.8835 4.15343 18.8809 6.59966 17.3684 8.12059Z"
+                                    fill="#323232"></path>
+                            </svg>
+                            <svg width="18" height="20" viewBox="0 0 18 20" fill="none" class="me-2 "
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 0.498291C15.934 0.498291 17.5018 2.06609 17.5018 4.00006C17.5018 5.93403 15.934 7.50183 14 7.50183C12.97 7.50183 12.0439 7.05716 11.4032 6.34934L6.84455 8.95376C6.94786 9.28416 7.00354 9.63561 7.00354 10.0001C7.00354 10.3645 6.94786 10.716 6.84455 11.0464L11.4023 13.6518C12.043 12.9434 12.9695 12.4983 14 12.4983C15.934 12.4983 17.5018 14.0661 17.5018 16.0001C17.5018 17.934 15.934 19.5018 14 19.5018C12.066 19.5018 10.4982 17.934 10.4982 16.0001C10.4982 15.6356 10.5539 15.2842 10.6572 14.9538L6.09951 12.3483C5.45873 13.0567 4.53223 13.5018 3.50177 13.5018C1.5678 13.5018 0 11.934 0 10.0001C0 8.06609 1.5678 6.49829 3.50177 6.49829C4.53173 6.49829 5.45784 6.94296 6.09859 7.65078L10.6572 5.04636C10.5539 4.71596 10.4982 4.36451 10.4982 4.00006C10.4982 2.06609 12.066 0.498291 14 0.498291ZM14 13.9983C12.8945 13.9983 11.9982 14.8945 11.9982 16.0001C11.9982 17.1056 12.8945 18.0018 14 18.0018C15.1055 18.0018 16.0018 17.1056 16.0018 16.0001C16.0018 14.8945 15.1055 13.9983 14 13.9983ZM3.50177 7.99829C2.39622 7.99829 1.5 8.89451 1.5 10.0001C1.5 11.1056 2.39622 12.0018 3.50177 12.0018C4.60732 12.0018 5.50354 11.1056 5.50354 10.0001C5.50354 8.89451 4.60732 7.99829 3.50177 7.99829ZM14 1.99829C12.8945 1.99829 11.9982 2.89451 11.9982 4.00006C11.9982 5.10561 12.8945 6.00183 14 6.00183C15.1055 6.00183 16.0018 5.10561 16.0018 4.00006C16.0018 2.89451 15.1055 1.99829 14 1.99829Z"
+                                    fill="#323232"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .cartEmpty__but{
     border: 1px solid #323232;
     font-weight: 500;
@@ -24,7 +29,6 @@
     box-shadow: 0 8px 5px -5 rgba(0,0,0,0.2);
     display: grid;
     place-content: center;
-    
 }
 .loader{
     pointer-events: none;
@@ -43,4 +47,78 @@
         transform: rotate(1turn);
     }
 
+}
+.elementsLeftPart a{
+  font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -.02em;
+    line-height: 20px;
+    margin-right: 24px;
+}
+.elementsLeftPart a span{
+    color: #ff003c;
+}
+.extraButton{
+    padding: 7px 22px;
+}
+.container-addtion{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.katalog{
+    font-size: 17.7px;
+}
+.inputSearch form img{
+    position: relative;
+    right: -34px;
+}
+.inputSearch form input{
+    background: #f3f3f3;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    color: #777;
+    font-weight: 500;
+    letter-spacing: -.02em;
+    line-height: 20px;
+    padding: 8px 0 8px 42px;
+    transition: .3s;
+    width: 100%
+}
+ .stick {
+    display: inline-block;
+    height: 18px;
+    width: 1px;
+    background-color: #323232;
+    margin-left: 35px;
+    /* margin-top: 12px; */
+    position: static;
+    background-color: #f3f3f3;
+
+ }
+
+ header{
+ }
+  
+ main{
+    height: 100vh;
+    background-color: #f3f3f3;
+}
+.header-gap {
+    height: 20px; /* Adjust this value to increase or decrease the gap */
+}
+.TopPart h1{
+    margin: 0;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 30px;
+    letter-spacing: -.03em;
+}
+.TopPart{
+    background: #fff;
+    border-radius: 10px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
 }

@@ -140,11 +140,10 @@ function displayResults(results){
     })
 
 }
-let card=document.querySelectorAll(".card")
-card.forEach(item=>{
-item.addEventListener("click",function(){
-    window.location.href="TheProductIntroduce.html"
+
+cardimg=document.querySelectorAll(".card-img-top");
+cardimg.forEach(items=>{
+    items.addEventListener("click",function(){
+        window.location.href="TheProductIntroduce.html"
+    })
 })
-})
-   
-  
